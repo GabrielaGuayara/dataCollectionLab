@@ -42,3 +42,14 @@ let obj ={};
 console.log(arrOfObj)
 
 
+//Part 4: Sorting and Manipulating Data
+arrOfObj.sort();
+//Remove the last element from the sorted array.
+arrOfObj.pop()
+console.log(arrOfObj)
+
+//Insert the following object at index 1:
+// { id: "48", name: "Barry", occupation: "Runner", age: "25" }
+
+//Add the following object to the end of the array:
+// { id: "7", name: "Bilbo", occupation: "None", age: "111" }
