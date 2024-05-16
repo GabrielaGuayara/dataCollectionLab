@@ -9,4 +9,36 @@ for(let i=0; i<rows.length; i++){
     arr.push(cell)
 }
 
-console.log(arr)
+// console.log(arr)
+
+
+//PART THREE: TRANSFORMING DATA
+
+let arrOfObj = [];
+
+//Getting the rows using the split() metod
+let row = string.split("\n");
+
+let columnNum = row[0].split(",").length;
+// console.log(columnNum)
+let headers = row[0].split(",");
+// console.log(headerCol)
+
+//For loop to loop through each row
+for(let i=1; i<row.length; i++){
+    let cells = row[i].split(",");
+    // console.log(cells)
+
+//Create an object for this row
+let obj ={};
+
+    //For loop to loop through each cell and add it to the object
+    for(let j=0; j< columnNum; j++){
+        obj[headers[j]] = cells[j];
+    }
+    arrOfObj.push(obj)
+}
+
+console.log(arrOfObj)
+
+
