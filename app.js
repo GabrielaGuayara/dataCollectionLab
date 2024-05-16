@@ -28,7 +28,7 @@ function transfData(str){
     let arr = [];
 
     //Getting the rows using the split() metod
-    let row = string.split("\n");
+    let row = str.split("\n");
 
     let columnNum = row[0].split(",").length;
 
@@ -53,23 +53,26 @@ function transfData(str){
 }
 
 
-// //Part 4: Sorting and Manipulating Data
-// arrOfObj.sort();
-// //Remove the last element from the sorted array.
-// arrOfObj.pop()
+// Part 4: SORTING AND MANIPULATING DATA
+let newArr = transfData(string)
 
+function sortAndManipData(arr){
 
-// //Insert the following object at index 1:
+    //Remove the last element from the sorted array.
+    arr.pop()
+    arr.sort()
 
-// arrOfObj.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" })
-// // 
+    //Insert the following object at index 1:
+    arr.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" })
+    
+    //Add the following object to the end of the array:
+    arr.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" })
 
-// //Add the following object to the end of the array:
-
-// arrOfObj.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" })
-// console.log(arrOfObj)
-
-
-
-// console.log(expFunctionality(string))
+    return arr;
+}
+console.log("*---------------------PART TWO----------------*")
+console.log(expFunctionality(string))
+console.log("*---------------------PART THREE--------------*")
 console.log(transfData(string))
+console.log("*---------------------PART FOUR---------------*")
+console.log(sortAndManipData(newArr))
