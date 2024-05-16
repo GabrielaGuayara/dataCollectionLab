@@ -46,10 +46,14 @@ console.log(arrOfObj)
 arrOfObj.sort();
 //Remove the last element from the sorted array.
 arrOfObj.pop()
-console.log(arrOfObj)
+
 
 //Insert the following object at index 1:
-// { id: "48", name: "Barry", occupation: "Runner", age: "25" }
+
+arrOfObj.splice(1, 0, { id: "48", name: "Barry", occupation: "Runner", age: "25" })
+// 
 
 //Add the following object to the end of the array:
-// { id: "7", name: "Bilbo", occupation: "None", age: "111" }
+
+arrOfObj.push({ id: "7", name: "Bilbo", occupation: "None", age: "111" })
+console.log(arrOfObj)
