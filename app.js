@@ -1,4 +1,4 @@
-//Part 1: Refactoring Old Code
+//PART ONE: REFACTORING OLD CODE
 const strOne = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.49,0.066,0.066\n3,0.98,0.087,0.080\n4,1.47,0.116,0.108\n5,1.96,0.142,0.138\n6,2.45,0.166,0.158\n7,2.94,0.193,0.174\n8,3.43,0.204,0.192\n9,3.92,0.226,0.205\n10,4.41,0.238,0.232"
 
 function refactCode(str){
@@ -29,7 +29,7 @@ function refactCode(str){
 }
 
 
-//EXPANDING FUNCTIONALITY
+//EPART TWO: XPANDING FUNCTIONALITY
 
 const strTwo= "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
 
@@ -39,10 +39,8 @@ function expFunctionality(str){
     
     let rows = str.split("\n");
     
-    let cell = "";
-    
     for(let i = 0; i < rows.length; i++){
-        cell = rows[i].split(",");
+        let cell = rows[i].split(",");
         arr.push(cell);
     }
 
@@ -82,7 +80,7 @@ function transfData(str){
 }
 
 
-// Part 4: SORTING AND MANIPULATING DATA
+// PART FOUR: SORTING AND MANIPULATING DATA
 let newArr = transfData(strTwo)
 
 function sortAndManipData(arr){
@@ -100,17 +98,31 @@ function sortAndManipData(arr){
     return arr;
 }
 
+function newArrayOfObj (newArr){
+    
+    let rows = newArr.split("\n") //Retuns four arrays of elements 
 
-
-let rows = newArr.split("\n") //Retuns four arrays of elements 
-
-for(j=0; j< rows.length; j++){
-    let cells = rows[j].split(",");
-    console.log(cells.join(" "));
+    for( j = 0; j< rows.length; j++){
+        
+        let cells = rows[j].split(",");
+        
+        console.log(cells.join(" "));
    }
 
+}
 
-   console.log("*------------------PART ONE----------------*")
+
+/*PART FIVE: FULL CIRCLE
+1. Creta a function to transform data back into CVS format.
+2. Initialize an empty array to store the CVS rows
+3. Add the first row that would be the headers using the push method. Then, use join method to join them with ","
+4. Use for each forEach to access each row and convert values into string using join method.
+5. Push the converted values to the the CVS rows
+6. Join all the strings using join method with "\n"
+7. Return cvs string
+*/
+
+console.log("*------------------PART ONE----------------*")
 console.log(refactCode(strOne))
 console.log("*---------------------PART TWO----------------*")
 console.log(expFunctionality(strTwo))
@@ -118,3 +130,5 @@ console.log("*---------------------PART THREE--------------*")
 console.log(transfData(strTwo))
 console.log("*---------------------PART FOUR---------------*")
 console.log(sortAndManipData(newArr))
+console.log("*---------------------PART Five---------------*")
+
