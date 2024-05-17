@@ -70,7 +70,7 @@ function transfData(str){
 
                 //For loop to loop through each cell and add it to the object
                 for(let j=0; j< columnNum; j++){
-                    obj[headers[j]] = cells[j];
+                    obj[headers[j].toLowerCase()] = cells[j];
                 }
         
             arr.push(obj)
@@ -98,9 +98,9 @@ function sortAndManipData(arr){
     return arr;
 }
 
-function newArrayOfObj (newArr){
+function newArrayOfObj (arr){
     
-    let rows = newArr.split("\n") //Retuns four arrays of elements 
+    let rows = arr.split("\n") //Retuns four arrays of elements 
 
     for( j = 0; j< rows.length; j++){
         
@@ -112,15 +112,22 @@ function newArrayOfObj (newArr){
 }
 
 
-/*PART FIVE: FULL CIRCLE
-1. Creta a function to transform data back into CVS format.
-2. Initialize an empty array to store the CVS rows
-3. Add the first row that would be the headers using the push method. Then, use join method to join them with ","
-4. Use for each forEach to access each row and convert values into string using join method.
-5. Push the converted values to the the CVS rows
-6. Join all the strings using join method with "\n"
-7. Return cvs string
-*/
+//Function to get the total age and average age of the group
+function getAverageAge(arr){
+
+    let totalAge = 0;
+    
+    for(let i = 0; i < arr.length; i++){
+        
+        totalAge+= parseInt(arr[i].age);
+
+}
+    let avgAge = totalAge/arr.length;
+    
+    return `The total age is ${totalAge} and the average age of the group is ${avgAge} `
+}
+
+
 
 console.log("*------------------PART ONE----------------*")
 console.log(refactCode(strOne))
@@ -130,5 +137,28 @@ console.log("*---------------------PART THREE--------------*")
 console.log(transfData(strTwo))
 console.log("*---------------------PART FOUR---------------*")
 console.log(sortAndManipData(newArr))
-console.log("*---------------------PART Five---------------*")
+console.log((getAverageAge(newArr)))
+// console.log("*---------------------PART Five---------------*")
 
+// function transformToCvs(arr){
+    
+//     let newArr = [];
+
+//     // let headers = arr[0];
+
+//     // newArr.push(headers)
+
+//     console.log(arr[0])
+    
+// }
+
+// console.log(transformToCvs(newArr))
+/*PART FIVE: FULL CIRCLE
+1. Creta a function to transform data back into CVS format.
+2. Initialize an empty array to store the CVS rows
+3. Add the first row that would be the headers using the push method. Then, use join method to join them with ","
+4. Use for each forEach to access each row and convert values into string using join method.
+5. Push the converted values to the the CVS rows
+6. Join all the strings using join method with "\n"
+7. Return cvs string
+*/
