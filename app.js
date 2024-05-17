@@ -1,9 +1,38 @@
-//Declare a variable that stores the number of columns
+//Part 1: Refactoring Old Code
+const strOne = "Index,Mass (kg),Spring 1 (m),Spring 2 (m)\n1,0.00,0.050,0.050\n2,0.49,0.066,0.066\n3,0.98,0.087,0.080\n4,1.47,0.116,0.108\n5,1.96,0.142,0.138\n6,2.45,0.166,0.158\n7,2.94,0.193,0.174\n8,3.43,0.204,0.192\n9,3.92,0.226,0.205\n10,4.41,0.238,0.232"
 
-const string= "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
+function refactCode(str){
+
+    let newArr = [];
+
+    //Split the string into rows
+    const rows = str.split("\n");
+
+        //Use for loop to loop through the rows skipping the row[0]  
+        for(let i=1; i< rows.length; i++){
+            
+            let cell = rows[i].split(",");
+            
+            //Create the objects
+            let objs ={
+                    index: +`${cell[0]}`,
+                    mass: +`${cell[1]}`,
+                    spring1: +`${cell[2]}`,
+                    spring2: +`${cell[3]}`,
+            }
+    
+            //Add the objects to the array
+            newArr.push(objs)
+   }
+
+   return newArr;
+}
 
 
 //EXPANDING FUNCTIONALITY
+
+const strTwo= "ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26";
+
 function expFunctionality(str){
 
     let arr = [];
@@ -54,7 +83,7 @@ function transfData(str){
 
 
 // Part 4: SORTING AND MANIPULATING DATA
-let newArr = transfData(string)
+let newArr = transfData(strTwo)
 
 function sortAndManipData(arr){
 
@@ -70,9 +99,22 @@ function sortAndManipData(arr){
 
     return arr;
 }
+
+
+
+let rows = newArr.split("\n") //Retuns four arrays of elements 
+
+for(j=0; j< rows.length; j++){
+    let cells = rows[j].split(",");
+    console.log(cells.join(" "));
+   }
+
+
+   console.log("*------------------PART ONE----------------*")
+console.log(refactCode(strOne))
 console.log("*---------------------PART TWO----------------*")
-console.log(expFunctionality(string))
+console.log(expFunctionality(strTwo))
 console.log("*---------------------PART THREE--------------*")
-console.log(transfData(string))
+console.log(transfData(strTwo))
 console.log("*---------------------PART FOUR---------------*")
 console.log(sortAndManipData(newArr))
