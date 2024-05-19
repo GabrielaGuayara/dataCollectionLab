@@ -138,27 +138,29 @@ console.log(transfData(strTwo))
 console.log("*---------------------PART FOUR---------------*")
 console.log(sortAndManipData(newArr))
 console.log((getAverageAge(newArr)))
-// console.log("*---------------------PART Five---------------*")
+console.log("*---------------------PART Five---------------*")
+console.log(transformToCvs(newArr))
 
-// function transformToCvs(arr){
-    
-//     let newArr = [];
-
-//     // let headers = arr[0];
-
-//     // newArr.push(headers)
-
-//     console.log(arr[0])
-    
-// }
-
-// console.log(transformToCvs(newArr))
+// console.log((newArr))
 /*PART FIVE: FULL CIRCLE
-1. Creta a function to transform data back into CVS format.
-2. Initialize an empty array to store the CVS rows
-3. Add the first row that would be the headers using the push method. Then, use join method to join them with ","
-4. Use for each forEach to access each row and convert values into string using join method.
-5. Push the converted values to the the CVS rows
-6. Join all the strings using join method with "\n"
-7. Return cvs string
 */
+
+function transformToCvs(arr){
+    //Create a varible to store the converted string
+    let toString = "";
+
+    //Iterate each element in the array and add strings by using template literals
+    for(let i = 0; i < arr.length; i++){
+
+        toString += `id: ${arr[i].id}, occupation: ${arr[i].occupation}, age: ${arr[i].age}`
+        
+        //Sepate the string by using \n
+        toString += "\n";
+        
+    }
+
+    //the functions return the converted string
+    return toString;
+}
+
+
